@@ -1,12 +1,9 @@
-import "./App.css";
-import { Box, Typography } from "@mui/material";
+import PrimarySearchAppBar from "./components/header/PrimarySearchAppBar";
 
 function App() {
   return (
     <>
-      <Box>
-        <Typography variant="h1">Jash</Typography>
-      </Box>
+      <PrimarySearchAppBar />
     </>
   );
 }
