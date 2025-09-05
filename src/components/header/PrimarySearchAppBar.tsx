@@ -15,10 +15,19 @@ import MailIcon from "@mui/icons-material/Mail";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import AppsIcon from "@mui/icons-material/Apps";
 import img1 from "../../assets/img/images.jpg";
-import { Tabs, Tab, Button, Divider, Stack, Grid, Avatar } from "@mui/material";
+import {
+  Tabs,
+  Tab,
+  Button,
+  Divider,
+  Stack,
+  Grid,
+  Avatar,
+  Breadcrumbs,
+  Link,
+} from "@mui/material";
 import {
   Archive,
-  BorderAll,
   CorporateFare,
   Edit,
   FileCopy,
@@ -163,7 +172,7 @@ function CustomizedMenus(
     </div>
   );
 }
-function BasicTabs() {
+function BasicTabs1() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
@@ -172,7 +181,7 @@ function BasicTabs() {
 
   return (
     <Box>
-      <Box sx={{ color: "black" }}>
+      <Box>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -204,6 +213,39 @@ function BasicTabs() {
     </Box>
   );
 }
+
+function BasicTabs2() {
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
+
+  return (
+    <Box sx={{ width: "100%" }}>
+      <Box
+        sx={{
+          borderBottom: 1,
+          borderColor: "divider",
+          marginTop: "30px",
+        }}
+      >
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+        >
+          <Tab label="About" {...a11yProps(0)} sx={{ fontWeight: "600" }} />
+          <Tab label="Updates" {...a11yProps(1)} sx={{ fontWeight: "600" }} />
+          <Tab label="Learnings" {...a11yProps(2)} sx={{ fontWeight: "600" }} />
+          <Tab label="Risks" {...a11yProps(3)} sx={{ fontWeight: "600" }} />
+          <Tab label="Decisions" {...a11yProps(4)} sx={{ fontWeight: "600" }} />
+        </Tabs>
+      </Box>
+    </Box>
+  );
+}
+
 const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: "100%",
@@ -364,7 +406,7 @@ export default function PrimarySearchAppBar() {
                 ATLASSIAN
               </Typography>
             </Stack>
-            {BasicTabs()}
+            {BasicTabs1()}
             {CustomizedMenus("create")}
             <Button
               variant="contained"
@@ -453,14 +495,40 @@ export default function PrimarySearchAppBar() {
       </Box>
 
       <Grid container>
-        <Grid
-          size={8}
-          sx={{ border: "10px solid black", height: "93vh" }}
-        ></Grid>
-        <Grid
-          size={4}
-          sx={{ border: "10px solid pink", height: "93vh" }}
-        ></Grid>
+        <Grid size={8} sx={{ border: "1px solid grey", height: "93vh" }}>
+          <Box sx={{ margin: "30px 50px" }}>
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={{ xs: 1, sm: 2, md: 4 }}
+            >
+              <Box borderRadius={{}}>
+                <img src="src/assets/img/images.jpg" width={"50px"} />
+              </Box>
+
+              <Stack>
+                <Breadcrumbs aria-label="breadcrumb">
+                  <Link underline="hover" color="inherit" href="/">
+                    Projects
+                  </Link>
+                  <Typography sx={{ color: "text.primary" }}>
+                    BNC-123
+                  </Typography>
+                </Breadcrumbs>
+                <Typography variant="h5" fontWeight={"600"}>
+                  Customer acquisition via email marketing campaign
+                </Typography>
+              </Stack>
+            </Stack>
+            <Stack spacing={5}>
+              {BasicTabs2()}
+              <Stack direction="row" gap={2}>
+                <Avatar></Avatar>
+                <Typography margin={1}>Blair Sandoval</Typography>
+              </Stack>
+            </Stack>
+          </Box>
+        </Grid>
+        <Grid size={4} sx={{ border: "1px solid grey", height: "93vh" }}></Grid>
       </Grid>
     </>
   );
