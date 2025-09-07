@@ -26,7 +26,9 @@ import {
   Breadcrumbs,
   Link,
   TextField,
-  Paper,
+  Card,
+  CardContent,
+  Chip,
 } from "@mui/material";
 import {
   Archive,
@@ -40,15 +42,6 @@ import {
   Settings,
 } from "@mui/icons-material";
 import { Icon } from "@iconify/react/dist/iconify.js";
-
-const DemoPaper = styled(Paper)(({ theme }) => ({
-  width: "100%",
-  height: 120,
-  padding: theme.spacing(2),
-  ...theme.typography.body2,
-  textAlign: "center",
-  borderRadius: 8, 
-}));
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -548,15 +541,91 @@ export default function PrimarySearchAppBar() {
               <Typography color="grey" fontWeight={600}>
                 Last week
               </Typography>
-              <DemoPaper variant="outlined">outlined variant</DemoPaper>
-              <Stack direction="row">
-                <Avatar></Avatar>
-                <Stack>
-                  <Typography margin={1}>Blair Sandoval</Typography>
-                  <Typography>Next update due in 1 day</Typography>
-                </Stack>
-                
-              </Stack>
+              <Card
+                sx={{
+                  borderRadius: 3,
+                  boxShadow: 1,
+                  border: "1px solid #e0e0e0",
+                  maxWidth: "100%",
+                }}
+              >
+                <CardContent>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="flex-start"
+                  >
+                    <Stack direction="row" spacing={2}>
+                      <Avatar src="/profile.jpg" alt="Christina Bell" />
+                      <Stack>
+                        <Typography variant="subtitle1" fontWeight={600}>
+                          Christina Bell
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          4 days ago · 21 people viewed
+                        </Typography>
+                      </Stack>
+                    </Stack>
+
+                    <Chip
+                      label="On track for January"
+                      color="success"
+                      size="small"
+                    />
+                  </Stack>
+
+                  <Box mt={2}>
+                    <Typography variant="subtitle2" fontWeight={600} mb={1}>
+                      Shipped:
+                    </Typography>
+                    <ul style={{ margin: 0, paddingLeft: "1.5rem" }}>
+                      <li>
+                        <Link href="#">
+                          Stay on top of your org in Atlas – filter projects and
+                          goals
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#">
+                          TC-3314: Add some personality to the "Add comment..."
+                          text box
+                        </Link>
+                      </li>
+                      <li>Soft delete for workspaces (video demo)</li>
+                      <li>MS Teams app rename is live</li>
+                    </ul>
+
+                    <Typography
+                      variant="subtitle2"
+                      fontWeight={600}
+                      mt={2}
+                      mb={1}
+                    >
+                      Read:
+                    </Typography>
+                    <ul style={{ margin: 0, paddingLeft: "1.5rem" }}>
+                      <li>
+                        Product group leadership check-in:{" "}
+                        <Link href="#">Atlas pre-GA check-in, June 2022</Link>
+                      </li>
+                    </ul>
+                  </Box>
+
+                  <Box
+                    mt={2}
+                    p={2}
+                    sx={{
+                      border: "1px solid #e0e0e0",
+                      borderRadius: 2,
+                      bgcolor: "#fafafa",
+                    }}
+                  >
+                    <Typography variant="body2">
+                      📊 Weekly Growth charts
+                    </Typography>
+                  </Box>
+                </CardContent>
+              </Card>
             </Stack>
           </Box>
         </Grid>
