@@ -25,6 +25,8 @@ import {
   Avatar,
   Breadcrumbs,
   Link,
+  TextField,
+  Paper,
 } from "@mui/material";
 import {
   Archive,
@@ -38,6 +40,15 @@ import {
   Settings,
 } from "@mui/icons-material";
 import { Icon } from "@iconify/react/dist/iconify.js";
+
+const DemoPaper = styled(Paper)(({ theme }) => ({
+  width: "100%",
+  height: 120,
+  padding: theme.spacing(2),
+  ...theme.typography.body2,
+  textAlign: "center",
+  borderRadius: 8, 
+}));
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -521,9 +532,30 @@ export default function PrimarySearchAppBar() {
             </Stack>
             <Stack spacing={5}>
               {BasicTabs2()}
-              <Stack direction="row" gap={2}>
+              <Stack direction="row" justifyContent="space-between">
+                <Stack direction="row" gap={1}>
+                  <Avatar></Avatar>
+                  <Typography margin={1}>Blair Sandoval</Typography>
+                </Stack>
+                <Typography>Next update due in 1 day</Typography>
+              </Stack>
+              <TextField
+                id="outlined-multiline-static"
+                multiline
+                rows={2}
+                placeholder="Post your update"
+              />
+              <Typography color="grey" fontWeight={600}>
+                Last week
+              </Typography>
+              <DemoPaper variant="outlined">outlined variant</DemoPaper>
+              <Stack direction="row">
                 <Avatar></Avatar>
-                <Typography margin={1}>Blair Sandoval</Typography>
+                <Stack>
+                  <Typography margin={1}>Blair Sandoval</Typography>
+                  <Typography>Next update due in 1 day</Typography>
+                </Stack>
+                
               </Stack>
             </Stack>
           </Box>
