@@ -29,19 +29,44 @@ import {
   Card,
   CardContent,
   Chip,
+  Stepper,
+  Step,
+  StepLabel,
+  StepButton,
+  AvatarGroup,
+  List,
+  ListItem,
+  ListItemText,
 } from "@mui/material";
 import {
+  Add,
+  Adjust,
   Archive,
   CorporateFare,
   Edit,
   FileCopy,
   HelpOutline,
+  HolidayVillage,
+  InsertLink,
   KeyboardArrowDown,
   MoreHoriz,
   Notifications,
+  People,
   Settings,
 } from "@mui/icons-material";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { green } from "@mui/material/colors";
+
+const steps = [
+  "27 Apr – 3 May",
+  "4–10 May",
+  "11–17 May",
+  "8–14 Jun",
+  "15–21 Jun",
+  "29 Jun – 4 Jul",
+  "Last week",
+  "This week",
+];
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -505,6 +530,7 @@ export default function PrimarySearchAppBar() {
               direction={{ xs: "column", sm: "row" }}
               spacing={{ xs: 1, sm: 2, md: 4 }}
             >
+              {/* ---------------------------------------------------------------------------------------------------------------- */}
               <Box borderRadius={{}}>
                 <img src="src/assets/img/images.jpg" width={"50px"} />
               </Box>
@@ -523,15 +549,38 @@ export default function PrimarySearchAppBar() {
                 </Typography>
               </Stack>
             </Stack>
-            <Stack spacing={5}>
+            {/* ---------------------------------------------------------------------------------------------------------------- */}
+            <Stack spacing={2.2}>
               {BasicTabs2()}
+
+              {/* ---------------------------------------------------------------------------------------------------------------- */}
+              <Stack>
+                <Stack direction="row" justifyContent="space-between">
+                  <Typography fontWeight={600}>Project History</Typography>
+                  <Typography fontWeight={600} color="grey">
+                    Last updated 5 days ago
+                  </Typography>
+                </Stack>
+              </Stack>
+              {/* ---------------------------------------------------------------------------------------------------------------- */}
+              <Box sx={{ width: "100%" }}>
+                <Stepper activeStep={1} alternativeLabel>
+                  {steps.map((label) => (
+                    <Step key={label} sx={{ color: green }}>
+                      <StepLabel>{label}</StepLabel>
+                    </Step>
+                  ))}
+                </Stepper>
+              </Box>
+              {/* ---------------------------------------------------------------------------------------------------------------- */}
               <Stack direction="row" justifyContent="space-between">
                 <Stack direction="row" gap={1}>
                   <Avatar></Avatar>
-                  <Typography margin={1}>Blair Sandoval</Typography>
+                  <Typography marginTop={1}>Blair Sandoval</Typography>
                 </Stack>
-                <Typography>Next update due in 1 day</Typography>
+                <Typography marginTop={1}>Next update due in 1 day</Typography>
               </Stack>
+              {/* ---------------------------------------------------------------------------------------------------------------- */}
               <TextField
                 id="outlined-multiline-static"
                 multiline
@@ -574,26 +623,29 @@ export default function PrimarySearchAppBar() {
                     />
                   </Stack>
 
-                  <Box mt={2}>
+                  <Box mt={2} component="ul">
                     <Typography variant="subtitle2" fontWeight={600} mb={1}>
                       Shipped:
                     </Typography>
-                    <ul style={{ margin: 0, paddingLeft: "1.5rem" }}>
-                      <li>
+
+                    <Box component="ul">
+                      <Box component="li">
                         <Link href="#">
                           Stay on top of your org in Atlas – filter projects and
                           goals
                         </Link>
-                      </li>
-                      <li>
+                      </Box>
+                      <Box component="li">
                         <Link href="#">
                           TC-3314: Add some personality to the "Add comment..."
                           text box
                         </Link>
-                      </li>
-                      <li>Soft delete for workspaces (video demo)</li>
-                      <li>MS Teams app rename is live</li>
-                    </ul>
+                      </Box>
+                      <Box component="li">
+                        Soft delete for workspaces (video demo)
+                      </Box>
+                      <Box component="li">MS Teams app rename is live</Box>
+                    </Box>
 
                     <Typography
                       variant="subtitle2"
@@ -603,12 +655,15 @@ export default function PrimarySearchAppBar() {
                     >
                       Read:
                     </Typography>
-                    <ul style={{ margin: 0, paddingLeft: "1.5rem" }}>
-                      <li>
+                    <Box
+                      component="ul"
+                      style={{ margin: 0, paddingLeft: "1.5rem" }}
+                    >
+                      <Box component="li">
                         Product group leadership check-in:{" "}
                         <Link href="#">Atlas pre-GA check-in, June 2022</Link>
-                      </li>
-                    </ul>
+                      </Box>
+                    </Box>
                   </Box>
 
                   <Box
@@ -626,11 +681,232 @@ export default function PrimarySearchAppBar() {
                   </Box>
                 </CardContent>
               </Card>
+              {/* ---------------------------------------------------------------------------------------------------------------- */}
             </Stack>
           </Box>
         </Grid>
-        <Grid size={4} sx={{ border: "1px solid grey", height: "93vh" }}></Grid>
+        {/* ---------------------------------------------------------------------------------------------------------------------- */}
+        <Grid size={4} sx={{ border: "1px solid grey", height: "93vh" }}>
+          <Box sx={{ margin: "30px 50px" }}>
+            <Stack spacing={3}>
+              <Stack direction="row">
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#b5b2b253",
+                    color: "black",
+                    fontWeight: "600",
+                    marginRight: "10px",
+                    boxShadow: 0,
+                  }}
+                >
+                  Following
+                </Button>
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#b5b2b253",
+                    color: "black",
+                    fontWeight: "600",
+                    marginRight: "10px",
+                    boxShadow: 0,
+                  }}
+                >
+                  Share
+                </Button>
+                <InsertLink
+                  sx={{ transform: "rotate(135deg)", margin: "5px" }}
+                />
+                <MoreHoriz sx={{ margin: "5px" }} />
+              </Stack>
+              {/* ---------------------------------------------------------------------------------------------------------------- */}
+              <Stack>
+                <Typography>Status</Typography>
+                <Typography>On track for January</Typography>
+              </Stack>
+              {/* ---------------------------------------------------------------------------------------------------------------- */}
+              <Stack spacing={1}>
+                <Typography fontWeight={600}>Owner</Typography>
+                <Stack direction="row" gap={1}>
+                  <Avatar></Avatar>
+                  <Typography marginTop={1}>Blair</Typography>
+                </Stack>
+              </Stack>
+              {/* ---------------------------------------------------------------------------------------------------------------- */}
+              <Stack spacing={1}>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  spacing={1}
+                >
+                  <Stack direction="row" spacing={2}>
+                    <Typography fontWeight={600}>Contributors</Typography>
+                    <Typography>5</Typography>
+                  </Stack>
+                  <Add />
+                </Stack>
+                <Stack direction="row" spacing={1}>
+                  <Avatar src="/profile.jpg" alt="Christina Bell">
+                    <People />
+                  </Avatar>
+                  <Stack>
+                    <Typography
+                      variant="subtitle1"
+                      fontWeight={600}
+                      fontSize={14}
+                    >
+                      iOS engineering
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      5 member
+                    </Typography>
+                  </Stack>
+                </Stack>
+                <Stack>
+                  <Stack spacing={1} marginLeft={4}>
+                    {data.map((member, index) => (
+                      <Stack
+                        direction="row"
+                        alignItems="center"
+                        spacing={1}
+                        key={index}
+                      >
+                        <Avatar src={member.src} alt={member.name}>
+                          <People />
+                        </Avatar>
+                        <Stack>
+                          <Typography
+                            variant="subtitle1"
+                            fontWeight={600}
+                            fontSize={14}
+                          >
+                            {member.name}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {member.position}
+                          </Typography>
+                        </Stack>
+                      </Stack>
+                    ))}
+                  </Stack>
+                  <Stack
+                    marginLeft={5}
+                    marginTop={2}
+                    direction="row"
+                    spacing={1}
+                  >
+                    <Add
+                      sx={{
+                        backgroundColor: "#cec2c25e",
+                        borderRadius: "20px",
+                      }}
+                    />
+                    <Typography sx={{ fontWeight: "600", color: "grey" }}>
+                      Add team member
+                    </Typography>
+                  </Stack>
+                </Stack>
+              </Stack>
+              {/* ---------------------------------------------------------------------------------------------------------------- */}
+              <Stack spacing={1}>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  spacing={1}
+                >
+                  <Stack direction="row" spacing={2}>
+                    <Typography fontWeight={600}>Followers</Typography>
+                    <Typography>10</Typography>
+                  </Stack>
+                  <Add />
+                </Stack>
+                <Stack
+                  sx={{
+                    justifyContent: "start",
+                    alignItems: "start",
+                  }}
+                >
+                  <AvatarGroup max={10}>
+                    <Avatar
+                      alt="Remy Sharp"
+                      src="/static/images/avatar/1.jpg"
+                    />
+                    <Avatar
+                      alt="Travis Howard"
+                      src="/static/images/avatar/2.jpg"
+                    />
+                    <Avatar
+                      alt="Cindy Baker"
+                      src="/static/images/avatar/3.jpg"
+                    />
+                    <Avatar
+                      alt="Agnes Walker"
+                      src="/static/images/avatar/4.jpg"
+                    />
+                    <Avatar
+                      alt="Trevor Henderson"
+                      src="/static/images/avatar/5.jpg"
+                    />
+                    <Avatar
+                      alt="Remy Sharp"
+                      src="/static/images/avatar/1.jpg"
+                    />
+                    <Avatar
+                      alt="Travis Howard"
+                      src="/static/images/avatar/2.jpg"
+                    />
+                    <Avatar
+                      alt="Cindy Baker"
+                      src="/static/images/avatar/3.jpg"
+                    />
+                    <Avatar
+                      alt="Agnes Walker"
+                      src="/static/images/avatar/4.jpg"
+                    />
+                    <Avatar
+                      alt="Trevor Henderson"
+                      src="/static/images/avatar/5.jpg"
+                    />
+                  </AvatarGroup>
+                </Stack>
+              </Stack>
+              {/* ---------------------------------------------------------------------------------------------------------------- */}
+              <Stack spacing={1}>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  spacing={1}
+                >
+                  <Stack direction="row" spacing={2}>
+                    <Typography fontWeight={600}>
+                      What goals does this contribute to?
+                    </Typography>
+                  </Stack>
+                  <Add />
+                </Stack>
+                <Stack direction="row" spacing={1}>
+                  <Adjust
+                    sx={{ color: "orange", backgroundColor: "#fff3acff" }}
+                  />
+                  <Stack>
+                    <Typography fontWeight={600} color="grey">
+                      Expand AlpacaTravel market share
+                    </Typography>
+                  </Stack>
+                </Stack>
+              </Stack>
+            </Stack>
+          </Box>
+        </Grid>
       </Grid>
     </>
   );
 }
+
+const data = [
+  { name: "Blair", position: "Senior Developer", src: "Blair.jpg" },
+  { name: "Alvin", position: "Senior Developer", src: "Blair.jpg" },
+  { name: "Norah", position: "Product Manager", src: "Blair.jpg" },
+  { name: "Eliot", position: "Developer", src: "Blair.jpg" },
+  { name: "Maribel", position: "Product Marketing Manager", src: "Blair.jpg" },
+];
