@@ -32,11 +32,7 @@ import {
   Stepper,
   Step,
   StepLabel,
-  StepButton,
   AvatarGroup,
-  List,
-  ListItem,
-  ListItemText,
 } from "@mui/material";
 import {
   Add,
@@ -46,7 +42,6 @@ import {
   Edit,
   FileCopy,
   HelpOutline,
-  HolidayVillage,
   InsertLink,
   KeyboardArrowDown,
   MoreHoriz,
@@ -575,7 +570,7 @@ export default function PrimarySearchAppBar() {
               {/* ---------------------------------------------------------------------------------------------------------------- */}
               <Stack direction="row" justifyContent="space-between">
                 <Stack direction="row" gap={1}>
-                  <Avatar></Avatar>
+                  <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR9H0OeqNz2Rp6vcS8oNz7BPezEtzE1lIvR7afSgXANJwL28SfzEa5n4jCh-X1gXO52jo&usqp=CAU"></Avatar>
                   <Typography marginTop={1}>Blair Sandoval</Typography>
                 </Stack>
                 <Typography marginTop={1}>Next update due in 1 day</Typography>
@@ -605,7 +600,10 @@ export default function PrimarySearchAppBar() {
                     alignItems="flex-start"
                   >
                     <Stack direction="row" spacing={2}>
-                      <Avatar src="/profile.jpg" alt="Christina Bell" />
+                      <Avatar
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzXq5qGKw0V-doQphkM0sAEemGQG0SU6l6ww&s"
+                        alt="Christina Bell"
+                      />
                       <Stack>
                         <Typography variant="subtitle1" fontWeight={600}>
                           Christina Bell
@@ -721,14 +719,14 @@ export default function PrimarySearchAppBar() {
               </Stack>
               {/* ---------------------------------------------------------------------------------------------------------------- */}
               <Stack>
-                <Typography>Status</Typography>
+                <Typography fontWeight={600}>Status</Typography>
                 <Typography>On track for January</Typography>
               </Stack>
               {/* ---------------------------------------------------------------------------------------------------------------- */}
               <Stack spacing={1}>
                 <Typography fontWeight={600}>Owner</Typography>
                 <Stack direction="row" gap={1}>
-                  <Avatar></Avatar>
+                  <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR9H0OeqNz2Rp6vcS8oNz7BPezEtzE1lIvR7afSgXANJwL28SfzEa5n4jCh-X1gXO52jo&usqp=CAU"></Avatar>
                   <Typography marginTop={1}>Blair</Typography>
                 </Stack>
               </Stack>
@@ -737,13 +735,31 @@ export default function PrimarySearchAppBar() {
                 <Stack
                   direction="row"
                   justifyContent="space-between"
+                  alignItems="center"
+                  display="flex"
                   spacing={1}
                 >
-                  <Stack direction="row" spacing={2}>
+                  <Stack direction="row" spacing={1}>
                     <Typography fontWeight={600}>Contributors</Typography>
-                    <Typography>5</Typography>
+
+                    <Box
+                      sx={{
+                        backgroundColor: "#635d5d48",
+                        height: "20px",
+                        width: "20px",
+                        paddingLeft: "px",
+                        borderRadius: "15px ",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        display: "flex",
+                      }}
+                    >
+                      <Typography>5</Typography>
+                    </Box>
                   </Stack>
-                  <Add />
+                  <IconButton>
+                    <Add />
+                  </IconButton>
                 </Stack>
                 <Stack direction="row" spacing={1}>
                   <Avatar src="/profile.jpg" alt="Christina Bell">
@@ -814,11 +830,26 @@ export default function PrimarySearchAppBar() {
                   justifyContent="space-between"
                   spacing={1}
                 >
-                  <Stack direction="row" spacing={2}>
+                  <Stack direction="row" spacing={1}>
                     <Typography fontWeight={600}>Followers</Typography>
-                    <Typography>10</Typography>
+                    <Box
+                      sx={{
+                        backgroundColor: "#635d5d48",
+                        height: "22px",
+                        width: "22px",
+                        paddingLeft: "px",
+                        borderRadius: "15px ",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        display: "flex",
+                      }}
+                    >
+                      <Typography>10</Typography>
+                    </Box>
                   </Stack>
-                  <Add />
+                  <IconButton>
+                    <Add />
+                  </IconButton>
                 </Stack>
                 <Stack
                   sx={{
@@ -829,43 +860,43 @@ export default function PrimarySearchAppBar() {
                   <AvatarGroup max={10}>
                     <Avatar
                       alt="Remy Sharp"
-                      src="/static/images/avatar/1.jpg"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn8P6POnmXE2YJlFMqlJ-b2F_t8bdqTq4CAb-mQWDeI813MCCXefNOg9RjN2AQZwPzy3Y&usqp=CAU"
                     />
                     <Avatar
                       alt="Travis Howard"
-                      src="/static/images/avatar/2.jpg"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHAcqQaIXxPkXQd4JHTakfT_dqmaE4EiDaqAi1eFd2-yBUyrFn7KndEW6y_qWcxejD7kA&usqp=CAU"
                     />
                     <Avatar
                       alt="Cindy Baker"
-                      src="/static/images/avatar/3.jpg"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyuCwSGCSFDd2fiwEJIivTZMtyi_C-rJviL6eaNYj_D6JSCsqGeNKxGSikjn8QcPqPvWQ&usqp=CAU"
                     />
                     <Avatar
                       alt="Agnes Walker"
-                      src="/static/images/avatar/4.jpg"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdlTTH6ot0muPMul3PQQS4xem2weT9HIRTZX7t7iaiL5M2ShQIeSaS-Kn_7Av-OxfMvNM&usqp=CAU"
                     />
                     <Avatar
                       alt="Trevor Henderson"
-                      src="/static/images/avatar/5.jpg"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQegbILcbmF5GKm--MgJueO-zn7bSM6xcl8YroeNQL3MlOdOco2pmg0iUrslYtmEMlu6w0&usqp=CAU"
                     />
                     <Avatar
                       alt="Remy Sharp"
-                      src="/static/images/avatar/1.jpg"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8tpixLG6wOW_rMBrCtmX0AI9AOaQoOE5gQMctLBznSSecombgvPYimJPWMZIp9QSkYcE&usqp=CAU"
                     />
                     <Avatar
                       alt="Travis Howard"
-                      src="/static/images/avatar/2.jpg"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSla-p7MqWVSLL2rpSQHlxEO6mKceKYPvZjo4oslefoeXE7-oMcRHP5IfT3qgllHC8kKvQ&usqp=CAU"
                     />
                     <Avatar
                       alt="Cindy Baker"
-                      src="/static/images/avatar/3.jpg"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR9H0OeqNz2Rp6vcS8oNz7BPezEtzE1lIvR7afSgXANJwL28SfzEa5n4jCh-X1gXO52jo&usqp=CAU"
                     />
                     <Avatar
                       alt="Agnes Walker"
-                      src="/static/images/avatar/4.jpg"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzXq5qGKw0V-doQphkM0sAEemGQG0SU6l6ww&s"
                     />
                     <Avatar
                       alt="Trevor Henderson"
-                      src="/static/images/avatar/5.jpg"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRft9j1N5RomI96p0vldhtRrYqpXbyGuvBWQw&s"
                     />
                   </AvatarGroup>
                 </Stack>
@@ -882,7 +913,9 @@ export default function PrimarySearchAppBar() {
                       What goals does this contribute to?
                     </Typography>
                   </Stack>
-                  <Add />
+                  <IconButton>
+                    <Add />
+                  </IconButton>
                 </Stack>
                 <Stack direction="row" spacing={1}>
                   <Adjust
@@ -904,9 +937,29 @@ export default function PrimarySearchAppBar() {
 }
 
 const data = [
-  { name: "Blair", position: "Senior Developer", src: "Blair.jpg" },
-  { name: "Alvin", position: "Senior Developer", src: "Blair.jpg" },
-  { name: "Norah", position: "Product Manager", src: "Blair.jpg" },
-  { name: "Eliot", position: "Developer", src: "Blair.jpg" },
-  { name: "Maribel", position: "Product Marketing Manager", src: "Blair.jpg" },
+  {
+    name: "Blair",
+    position: "Senior Developer",
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR9H0OeqNz2Rp6vcS8oNz7BPezEtzE1lIvR7afSgXANJwL28SfzEa5n4jCh-X1gXO52jo&usqp=CAU",
+  },
+  {
+    name: "Alvin",
+    position: "Senior Developer",
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSla-p7MqWVSLL2rpSQHlxEO6mKceKYPvZjo4oslefoeXE7-oMcRHP5IfT3qgllHC8kKvQ&usqp=CAU",
+  },
+  {
+    name: "Norah",
+    position: "Product Manager",
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyuCwSGCSFDd2fiwEJIivTZMtyi_C-rJviL6eaNYj_D6JSCsqGeNKxGSikjn8QcPqPvWQ&usqp=CAU",
+  },
+  {
+    name: "Eliot",
+    position: "Developer",
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHAcqQaIXxPkXQd4JHTakfT_dqmaE4EiDaqAi1eFd2-yBUyrFn7KndEW6y_qWcxejD7kA&usqp=CAU",
+  },
+  {
+    name: "Maribel",
+    position: "Product Marketing Manager",
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzXq5qGKw0V-doQphkM0sAEemGQG0SU6l6ww&s",
+  },
 ];
