@@ -33,11 +33,15 @@ import {
   Step,
   StepLabel,
   AvatarGroup,
+  Paper,
 } from "@mui/material";
 import {
   Add,
   Adjust,
   Archive,
+  Brightness1,
+  CalendarMonth,
+  CheckCircle,
   CorporateFare,
   Edit,
   FileCopy,
@@ -51,6 +55,8 @@ import {
 } from "@mui/icons-material";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { green } from "@mui/material/colors";
+import { CombinationForJanuary } from "../extraComponents/CombinationForJanuary";
+import ProjectTimeline from "../timeline/ProjectTimeline";
 
 const steps = [
   "27 Apr – 3 May",
@@ -558,15 +564,7 @@ export default function PrimarySearchAppBar() {
                 </Stack>
               </Stack>
               {/* ---------------------------------------------------------------------------------------------------------------- */}
-              <Box sx={{ width: "100%" }}>
-                <Stepper activeStep={1} alternativeLabel>
-                  {steps.map((label) => (
-                    <Step key={label} sx={{ color: green }}>
-                      <StepLabel>{label}</StepLabel>
-                    </Step>
-                  ))}
-                </Stepper>
-              </Box>
+              {ProjectTimeline()}
               {/* ---------------------------------------------------------------------------------------------------------------- */}
               <Stack direction="row" justifyContent="space-between">
                 <Stack direction="row" gap={1}>
@@ -614,11 +612,7 @@ export default function PrimarySearchAppBar() {
                       </Stack>
                     </Stack>
 
-                    <Chip
-                      label="On track for January"
-                      color="success"
-                      size="small"
-                    />
+                    {CombinationForJanuary()}
                   </Stack>
 
                   <Box mt={2} component="ul">
@@ -628,16 +622,16 @@ export default function PrimarySearchAppBar() {
 
                     <Box component="ul">
                       <Box component="li">
-                        <Link href="#">
+                        <Paper sx={{ padding: "2px", display: "inline" }}>
                           Stay on top of your org in Atlas – filter projects and
                           goals
-                        </Link>
+                        </Paper>
                       </Box>
                       <Box component="li">
-                        <Link href="#">
+                        <Paper sx={{ padding: "2px", display: "inline" }}>
                           TC-3314: Add some personality to the "Add comment..."
                           text box
-                        </Link>
+                        </Paper>
                       </Box>
                       <Box component="li">
                         Soft delete for workspaces (video demo)
@@ -686,7 +680,7 @@ export default function PrimarySearchAppBar() {
         {/* ---------------------------------------------------------------------------------------------------------------------- */}
         <Grid size={4} sx={{ border: "1px solid grey", height: "93vh" }}>
           <Box sx={{ margin: "30px 50px" }}>
-            <Stack spacing={3}>
+            <Stack spacing={2}>
               <Stack direction="row">
                 <Button
                   variant="contained"
@@ -712,15 +706,19 @@ export default function PrimarySearchAppBar() {
                 >
                   Share
                 </Button>
-                <InsertLink
-                  sx={{ transform: "rotate(135deg)", margin: "5px" }}
-                />
-                <MoreHoriz sx={{ margin: "5px" }} />
+                <IconButton sx={{ height: "35px" }}>
+                  <InsertLink
+                    sx={{ transform: "rotate(135deg)", margin: "5px" }}
+                  />
+                </IconButton>
+                <IconButton sx={{ height: "35px" }}>
+                  <MoreHoriz sx={{ margin: "5px" }} />
+                </IconButton>
               </Stack>
               {/* ---------------------------------------------------------------------------------------------------------------- */}
               <Stack>
                 <Typography fontWeight={600}>Status</Typography>
-                <Typography>On track for January</Typography>
+                {CombinationForJanuary()}
               </Stack>
               {/* ---------------------------------------------------------------------------------------------------------------- */}
               <Stack spacing={1}>
@@ -828,6 +826,8 @@ export default function PrimarySearchAppBar() {
                 <Stack
                   direction="row"
                   justifyContent="space-between"
+                  alignItems="center"
+                  display="flex"
                   spacing={1}
                 >
                   <Stack direction="row" spacing={1}>
@@ -906,6 +906,8 @@ export default function PrimarySearchAppBar() {
                 <Stack
                   direction="row"
                   justifyContent="space-between"
+                  alignItems="center"
+                  display="flex"
                   spacing={1}
                 >
                   <Stack direction="row" spacing={2}>
