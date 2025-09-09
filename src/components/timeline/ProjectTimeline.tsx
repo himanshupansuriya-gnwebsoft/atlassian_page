@@ -6,8 +6,12 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 export default function ProjectTimeline() {
   const steps = [
-    { label: "27 Apr – 3 May", status: "done", icon: <CheckCircleOutlineIcon /> },
-    { label: "4–10 May", status: "warning", icon: <WarningAmberIcon /> },
+    {
+      label: "27 Apr – 3 May",
+      status: "done",
+      icon: <CheckCircleOutlineIcon />,
+    },
+    { label: "14–10 May", status: "warning", icon: <WarningAmberIcon /> },
     { label: "11–17 May", status: "warning", icon: null },
     { label: "8–14 Jun", status: "done", icon: <CalendarMonthIcon /> },
     { label: "15–21 Jun", status: "done", icon: null },
@@ -26,13 +30,13 @@ export default function ProjectTimeline() {
         return "#e2b203"; // yellow
       case "pending":
       default:
-        return "#c1c7d0"; // grey
+        return "#c1c7d0"; // g
     }
   };
 
   return (
     <Box sx={{ width: "100%", mt: 3 }}>
-      <Stack direction="row" alignItems="center" spacing={2}>
+      <Stack direction="row" alignItems="center" spacing={0.2}>
         {steps.map((step, index) => (
           <React.Fragment key={index}>
             <Box
@@ -40,19 +44,21 @@ export default function ProjectTimeline() {
                 width: 24,
                 height: 24,
                 borderRadius: "50%",
-                bgcolor: step.status === "active" ? getColor(step.status) : "white",
-                border: `10px solid ${getColor(step.status)}`,
+                bgcolor:
+                  step.status === "active" ? getColor(step.status) : "white",
+                border: `5px solid ${getColor(step.status)}`,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: step.status === "active" ? "white" : getColor(step.status),
+                color:
+                  step.status === "active" ? "white" : getColor(step.status),
                 fontSize: 14,
               }}
             >
               {step.icon}
             </Box>
 
-            {index !== steps.length - 1 && (
+            {index !== steps.length && (
               <Box
                 sx={{
                   flex: 1,
