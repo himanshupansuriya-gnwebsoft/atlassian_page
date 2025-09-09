@@ -20,15 +20,15 @@ export default function DashboardScreen() {
       {PrimarySearchAppBar()}
 
       <Grid container>
-        <Grid size={9} sx={{ height: "93vh" }}>
+        <Grid size={8.5} sx={{ height: "93vh" }}>
           <Box sx={{ margin: "30px 50px" }}>
             <Stack
               direction={{ xs: "column", sm: "row" }}
               spacing={{ xs: 1, sm: 2, md: 4 }}
             >
               {/* ---------------------------------------------------------------------------------------------------------------- */}
-              <Box>
-                <img src="src/assets/img/images.jpg" width={"50px"} />
+              <Box sx={{ borderRadius: "20px" }}>
+                <img src="src/assets/img/badge.jpg" width={"50px"} />
               </Box>
 
               <Stack>
