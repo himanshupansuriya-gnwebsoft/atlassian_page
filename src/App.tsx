@@ -1,9 +1,9 @@
-import PrimarySearchAppBar from "./components/header/PrimarySearchAppBar";
+import DashboardScreen from "./components/mainComponent/DashboardScreen";
 
 function App() {
   return (
     <>
-      <PrimarySearchAppBar />
+      <DashboardScreen />
     </>
   );
 }
