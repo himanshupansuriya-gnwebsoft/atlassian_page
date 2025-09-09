@@ -22,7 +22,7 @@ import { CombinationForJanuary } from "../extraComponents/CombinationForJanuary"
 export function RightSidebar() {
   return (
     <>
-      <Grid size={3} sx={{ height: "93vh", backgroundColor: "#aeaeae17" }}>
+      <Grid size={3.5} sx={{ height: "93vh", backgroundColor: "#aeaeae17" }}>
         <Box sx={{ margin: "30px 50px" }}>
           <Stack spacing={2}>
             <Stack direction="row">
